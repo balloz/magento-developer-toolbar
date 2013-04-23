@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Balloz_DeveloperToolbar>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Balloz_DeveloperToolbar>
+    </modules>
+</config>

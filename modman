@@ -1,0 +1,4 @@
+app/code/local/Balloz/DeveloperToolbar app/code/local/Balloz/DeveloperToolbar
+app/design/frontend/base/default/layout/balloz_developertoolbar.xml app/design/frontend/base/default/layout/balloz_developertoolbar.xml	
+app/design/frontend/base/default/template/balloz/developertoolbar app/design/frontend/base/default/template/balloz/developertoolbar
+app/etc/modules/Balloz_DeveloperToolbar.xml app/etc/modules/Balloz_DeveloperToolbar.xml

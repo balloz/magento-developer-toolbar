@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Balloz_DeveloperToolbar>
+			<version>0.1.0</version>
+		</Balloz_DeveloperToolbar>
+	</modules>
+	<global>
+		<models>
+			<developer_toolbar>
+				<class>Balloz_DeveloperToolbar_Model</class>
+			</developer_toolbar>
+		</models>
+	</global>
+</config>
