@@ -7,7 +7,7 @@
 		
 		<reference name="before_body_end">
 			<block type="developertoolbar/toolbar" name="balloz.toolbar" template="balloz/developertoolbar/toolbar.phtml">
-				<block type="developertoolbar/panel" name="balloz.toolbar.panels.stats" as="panel" template="balloz/developertoolbar/panels/stats.phtml" />
+				<block type="developertoolbar/panel_stats" name="balloz.toolbar.panels.stats" template="balloz/developertoolbar/panels/stats.phtml" />
 			</block>
 		</reference>
 	</default>

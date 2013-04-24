@@ -3,5 +3,36 @@
     left: 0;
     right: 0;
     bottom: 0;
-	background-color: red;
+    font: 11px Arial, sans-serif;
+    text-align: left;
+    color: #2f2f2f;
+    background-image: -moz-linear-gradient(top, #e4e4e4, #ffffff);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e4e4e4), to(#ffffff));
+    background-image: -o-linear-gradient(top, #e4e4e4, #ffffff);
+    background: linear-gradient(top, #e4e4e4, #ffffff);
+    border-top: 1px solid #bbb;
+    height: 30px;
+    padding: 2px 10px 0 10px;
+    border-bottom: 1px solid #bbb;
+}
+.balloz-toolbar .balloz-toolbar-panel {
+    float: left;
+}
+.balloz-toolbar .balloz-toolbar-panel-label a {
+    display: block;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 4px 8px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #666;
+}
+.balloz-toolbar .balloz-toolbar-panel-label a:hover {
+    text-decoration: none;
+    color: #999;
+}
+.balloz-toolbar .balloz-toolbar-panel-content {
+    display: none;
 }

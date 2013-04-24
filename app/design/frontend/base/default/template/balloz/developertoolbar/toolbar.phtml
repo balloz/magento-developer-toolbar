@@ -1,10 +1,11 @@
 <?php $panels = $this->getPanels(); ?>
 <div class="balloz-toolbar">
-	The toolbar.
 	<div class="balloz-toolbar-panels-container">
 		<?php foreach ($panels as $index => $panel) : ?>
-		<div class="balloz-toolbar-panel">
-			<a href="#" data-panel="<?php echo $index; ?>"><?php echo $this->htmlEscape($panel->getName()); ?></a>
+        <div class="balloz-toolbar-panel">
+            <div class="balloz-toolbar-panel-label">
+                <a href="#" data-panel="<?php echo $index; ?>"><?php echo $this->htmlEscape($panel->getName()); ?></a>
+            </div>
 			<div class="balloz-toolbar-panel-content" id="balloz-toolbar-panel-<?php echo $index; ?>">
 				<?php echo $panel->toHtml(); ?>
 			</div>
