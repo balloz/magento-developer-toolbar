@@ -6,10 +6,24 @@
 		</Balloz_DeveloperToolbar>
 	</modules>
 	<global>
+		<blocks>
+			<developertoolbar>
+				<class>Balloz_DeveloperToolbar_Block</class>
+			</developertoolbar>
+		</blocks>
 		<models>
-			<developer_toolbar>
+			<developertoolbar>
 				<class>Balloz_DeveloperToolbar_Model</class>
-			</developer_toolbar>
+			</developertoolbar>
 		</models>
 	</global>
+	<frontend>
+        <layout>
+            <updates>
+                <developer_toolbar>
+                    <file>balloz_developertoolbar.xml</file>
+                </developer_toolbar>
+            </updates>
+        </layout>
+    </frontend>
 </config>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+	<default>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>css/balloz/developer-toolbar/toolbar.css</name></action>
+		</reference>
+		
+		<reference name="before_body_end">
+			<block type="developertoolbar/toolbar" name="balloz.toolbar" template="balloz/developertoolbar/toolbar.phtml">
+				<block type="developertoolbar/panel" name="balloz.toolbar.panels.stats" as="panel" template="balloz/developertoolbar/panels/stats.phtml" />
+			</block>
+		</reference>
+	</default>
+</layout>
