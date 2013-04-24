@@ -3,9 +3,9 @@
 	The toolbar.
 	<div class="balloz-toolbar-panels-container">
 		<?php foreach ($panels as $index => $panel) : ?>
-		<div class="balloz-toolbar-panel-container">
+		<div class="balloz-toolbar-panel">
 			<a href="#" data-panel="<?php echo $index; ?>"><?php echo $this->htmlEscape($panel->getName()); ?></a>
-			<div class="balloz-toolbar-panel" id="balloz-toolbar-panel-<?php echo $index; ?>">
+			<div class="balloz-toolbar-panel-content" id="balloz-toolbar-panel-<?php echo $index; ?>">
 				<?php echo $panel->toHtml(); ?>
 			</div>
 		</div>
