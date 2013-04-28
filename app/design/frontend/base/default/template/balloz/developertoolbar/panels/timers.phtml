@@ -1,0 +1,29 @@
+<?php $timers = $this->getTimers(); ?>
+
+<table class="timers">
+	<thead>
+        <tr>
+            <th class="key">Key</th>
+            <th class="sum">Sum</th>
+            <th class="count">Count</th>
+            <th class="average">Avg.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($timers as $k => $data) : ?>
+        <tr>
+            <td class="key"><?php echo $k; ?></td>
+            <td class="sum">
+                <?php $interval = $data['sum'] * 1000; ?>
+                <span class="time <?php echo $this->colorInterval($interval); ?>">
+                    <?php echo number_format($interval, 2); ?>ms</td>
+                </span>
+            <td class="count"><?php echo $data['count']; ?></td>
+            <td class="average">
+                <?php if ($data['count'] > 0) : ?>
+                <?php echo number_format(($data['sum'] / $data['count']) * 1000, 2); ?>ms</td>
+                <?php endif; ?>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
