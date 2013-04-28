@@ -6,6 +6,16 @@
 		</Balloz_DeveloperToolbar>
 	</modules>
 	<global>
+		<events>
+			<controller_front_init_before>
+				<observers>
+					<developertoolbar>
+						<class>Balloz_DeveloperToolbar_Model_Observer</class>
+						<method>enableProfiling</method>
+					</developertoolbar>
+				</observers>
+			</controller_front_init_before>
+		</events>
 		<blocks>
 			<developertoolbar>
 				<class>Balloz_DeveloperToolbar_Block</class>

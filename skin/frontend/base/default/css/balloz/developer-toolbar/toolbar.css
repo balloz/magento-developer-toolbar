@@ -74,3 +74,15 @@
 .balloz-toolbar .balloz-toolbar-panel-content-blocks .white {
     color: white;
 }
+.balloz-toolbar .balloz-toolbar-panel-content-blocks .time {
+	color: #00ffff;
+}
+.balloz-toolbar .balloz-toolbar-panel-content-blocks .interval-green {
+	color: #00ff00;
+}
+.balloz-toolbar .balloz-toolbar-panel-content-blocks .interval-yellow {
+	color: #ffff00;
+}
+.balloz-toolbar .balloz-toolbar-panel-content-blocks .interval-red {
+	color: #ff0000;
+}

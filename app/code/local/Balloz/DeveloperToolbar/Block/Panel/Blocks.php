@@ -2,12 +2,12 @@
 
 class Balloz_DeveloperToolbar_Block_Panel_Blocks extends Balloz_DeveloperToolbar_Block_Panel
 {
-    protected $_timers;
+    protected $timers;
 
 	public function _construct() {
 		parent::_construct(); 
 		
-		$this->_timers = Varien_Profiler::getTimers();
+		$this->timers = Varien_Profiler::getTimers();
 	}
 	
     public function getIdentifier() {
@@ -17,7 +17,17 @@ class Balloz_DeveloperToolbar_Block_Panel_Blocks extends Balloz_DeveloperToolbar
     public function getName() {
         return 'Blocks';
     }
-	
+
+	public function colorInterval($interval) {
+		if ($interval < 5) {
+			return 'interval-green';
+		} elseif ($interval < 10) {
+			return 'interval-yellow';
+		} else {
+			return 'interval-red';
+		}
+	}
+
 	protected function _buildEntries(&$entries, $block, $alias, $level) {		
 		$extras = array();
 		$extras[] = count($block->getChild()) ? count($block->getChild()) : "-";
@@ -44,8 +54,8 @@ class Balloz_DeveloperToolbar_Block_Panel_Blocks extends Balloz_DeveloperToolbar
 		
 		
 		$profileName = "BLOCK: $name";
-		if (isset($this->_timers[$profileName])) {
-			$entry['time'] = $this->_timers[$profileName]['sum'];
+		if (isset($this->timers[$profileName])) {
+			$entry['time'] = $this->timers[$profileName]['sum'] * 1000;
 		} 
 
 		$entries[] = $entry;

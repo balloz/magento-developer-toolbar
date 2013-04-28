@@ -12,7 +12,7 @@
 	<?php endif; ?>
 	(<?php echo implode(' | ', $entry['extras']); ?>)
 	<?php if (isset($entry['time'])) : ?>
-	| <?php echo number_format($entry['time'] * 1000, 2); ?>ms
+	| <span class="time <?php echo $this->colorInterval($entry['time']); ?>"><?php echo number_format($entry['time'], 2); ?>ms</span>
 	<?php endif; ?>
 </div>
 <?php endforeach; ?>
