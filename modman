@@ -3,3 +3,4 @@ app/design/frontend/base/default/layout/balloz_developertoolbar.xml app/design/f
 app/design/frontend/base/default/template/balloz/developertoolbar app/design/frontend/base/default/template/balloz/developertoolbar
 app/etc/modules/Balloz_DeveloperToolbar.xml app/etc/modules/Balloz_DeveloperToolbar.xml
 skin/frontend/base/default/css/balloz/developer-toolbar skin/frontend/base/default/css/balloz/developer-toolbar
+skin/frontend/base/default/js/balloz/developer-toolbar skin/frontend/base/default/js/balloz/developer-toolbar

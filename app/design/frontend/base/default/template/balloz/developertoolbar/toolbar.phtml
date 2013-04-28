@@ -2,11 +2,11 @@
 <div class="balloz-toolbar">
 	<div class="balloz-toolbar-panels-container">
 		<?php foreach ($panels as $index => $panel) : ?>
-        <div class="balloz-toolbar-panel">
+		<div class="balloz-toolbar-panel balloz-toolbar-panel-<?php echo $panel->getIdentifier(); ?>">
             <div class="balloz-toolbar-panel-label">
-                <a href="#" data-panel="<?php echo $index; ?>"><?php echo $this->htmlEscape($panel->getName()); ?></a>
+                <a href="#balloz-toolbar-panel-<?php echo $index; ?>"><?php echo $this->htmlEscape($panel->getName()); ?></a>
             </div>
-			<div class="balloz-toolbar-panel-content" id="balloz-toolbar-panel-<?php echo $index; ?>">
+			<div class="balloz-toolbar-panel-content balloz-toolbar-panel-content-<?php echo $panel->getIdentifier(); ?>" id="balloz-toolbar-panel-<?php echo $index; ?>">
 				<?php echo $panel->toHtml(); ?>
 			</div>
 		</div>

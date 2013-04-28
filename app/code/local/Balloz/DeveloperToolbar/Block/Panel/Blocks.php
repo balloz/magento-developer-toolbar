@@ -1,6 +1,6 @@
 <?php
 
-class Balloz_DeveloperToolbar_Block_Panel_Stats extends Balloz_DeveloperToolbar_Block_Panel
+class Balloz_DeveloperToolbar_Block_Panel_Blocks extends Balloz_DeveloperToolbar_Block_Panel
 {
     protected $_timers;
 
@@ -11,11 +11,11 @@ class Balloz_DeveloperToolbar_Block_Panel_Stats extends Balloz_DeveloperToolbar_
 	}
 	
     public function getIdentifier() {
-        return 'stats';
+        return 'blocks';
     }
 
     public function getName() {
-        return 'Stats';
+        return 'Blocks';
     }
 	
 	protected function _buildEntries(&$entries, $block, $alias, $level) {		
