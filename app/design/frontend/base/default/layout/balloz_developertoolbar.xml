@@ -11,6 +11,7 @@
 				<block type="developertoolbar/panel_stats" name="balloz.toolbar.panels.stats" template="balloz/developertoolbar/panels/stats.phtml" />
 				<block type="developertoolbar/panel_blocks" name="balloz.toolbar.panels.blocks" template="balloz/developertoolbar/panels/blocks.phtml" />
 				<block type="developertoolbar/panel_timers" name="balloz.toolbar.panels.timers" template="balloz/developertoolbar/panels/timers.phtml" />
+				<block type="developertoolbar/panel_queries" name="balloz.toolbar.panels.queries" template="balloz/developertoolbar/panels/queries.phtml" />
 			</block>
 		</reference>
 	</default>
