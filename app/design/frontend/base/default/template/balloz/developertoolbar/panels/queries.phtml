@@ -1,6 +1,24 @@
-<?php foreach ($this->getQueries() as $connection => $list) : ?>
-<h1><?php echo $connection; ?></h1>
-<pre>
-	<?php print_r($list); ?>
-</pre>
+<?php foreach ($this->getQueries() as $connection => $queries) : ?>
+<h1><?php echo $connection; ?> (<?php echo count($queries); ?> queries)</h1>
+
+<table class="queries">
+    <thead>
+        <tr>
+            <th class="query">Query</th>
+            <th class="duration">Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($queries as $query) : ?>
+        <tr>
+            <td class="query">
+                <?php echo $query->getQuery(); ?>
+            </td>
+            <td class="duration">
+                <?php echo $this->prettyInterval($query->getElapsedSecs() * 1000); ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 <?php endforeach; ?>
