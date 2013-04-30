@@ -139,3 +139,19 @@
 	border-bottom: 1px solid #333;
 	padding: 3px 0;
 }
+
+/* === Handles panel === */
+.balloz-toolbar .balloz-toolbar-panel-handles a {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFySURBVBgZpcE7a1RBGMfh3xwnRziwBlOoBEG28FYriMSU9oKkTop8AcFWEKystRDEL2BnIVbapdVC8EbAYCEokgsL2T05M+/fd9CFRTcYyfMESRxGxK08fHMLOANcAy6BhAiYqKpAFcDMsMz2TNT6+dPHLmPi9s0LAUksP3j9WP/p/tN3ckR+WcQ9WdtkTOxvdWGOD1+2W1ykMJ3it7MnjlKEwFQfv7UUw1FX4yJOUoMT8Ol7y0Eo54CLOJkibnVhjoOybBQRJ1PALd19ycgMEzy/d53PX3eYpj8/iyxTVDiZUfwYdly5eJLNYWKs19T0mppeU9NrasaUMkWFk4liMMp0ErttYlKXRZfFJLNEUeGCGUXbdgy7TB51/IvSHkXECTEm8ZeZI4E/SYki4iyZgIB7sbbBpMHuHtPIJFzEZbMNoP/20Q0m9edn2Y+kLVykyPZs6c6rc5KuYnbcLIEMWUaWQBmZIQmQwAZQvccFSRzGT6Th9AjEKBwhAAAAAElFTkSuQmCC');
+}
+.balloz-toolbar .balloz-toolbar-panel-content-handles {
+    background-color: #000;
+    width: 400px;
+    height: 250px;
+    overflow: auto;
+    color: darkgrey;
+}
+.balloz-toolbar .balloz-toolbar-panel-handles .layout-handles {
+	list-style: decimal;
+	padding: 10px 20px 10px 20px;
+}
