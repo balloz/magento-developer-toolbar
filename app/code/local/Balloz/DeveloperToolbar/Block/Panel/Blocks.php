@@ -42,6 +42,8 @@ class Balloz_DeveloperToolbar_Block_Panel_Blocks extends Balloz_DeveloperToolbar
 		} else {
 			$extras[] = '-';
 		}
+
+		$extras[] = get_class($block);
 	
 		// sprintf("$offset%s %s\n", $alias, $this->_colorize($extraString, self::COLOR_DARK_GRAY))
 		$name = $block->getNameInLayout();
