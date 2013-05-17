@@ -21,8 +21,9 @@
             <td class="count"><?php echo $data['count']; ?></td>
             <td class="average">
                 <?php if ($data['count'] > 0) : ?>
-                <?php echo number_format(($data['sum'] / $data['count']) * 1000, 2); ?>ms</td>
+                <?php echo number_format(($data['sum'] / $data['count']) * 1000, 2); ?>ms
                 <?php endif; ?>
+            </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
