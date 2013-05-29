@@ -5,7 +5,7 @@
 			<action method="addItem"><type>skin_css</type><name>css/balloz/developer-toolbar/toolbar.css</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/balloz/developer-toolbar/toolbar.js</name></action>
 		</reference>
-		
+
 		<reference name="before_body_end">
 			<block type="developertoolbar/toolbar" name="balloz.toolbar" template="balloz/developertoolbar/toolbar.phtml">
 				<block type="developertoolbar/panel_stats" name="balloz.toolbar.panels.stats" template="balloz/developertoolbar/panels/stats.phtml" />
