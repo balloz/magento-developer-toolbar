@@ -2,7 +2,11 @@
 
 class Balloz_DeveloperToolbar_Model_Observer
 {
-	public function enableProfiling(Varien_Event_Observer $event) {
+    public function enableProfiling(Varien_Event_Observer $event) {
+        if (!Mage::helper('developertoolbar')->isEnabledForCurrentIp()) {
+            return;
+        }
+
 		// TODO: Enable/disable based on config setting? Perhaps cookie set by frontend toolbar?
 		Varien_Profiler::enable();
 

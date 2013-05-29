@@ -18,5 +18,13 @@ class Balloz_DeveloperToolbar_Block_Toolbar extends Mage_Core_Block_Template
 		}
 		
 		return $panels;
-	}
+    }
+
+    protected function _toHtml() {
+        if (!$this->helper('developertoolbar')->isEnabledForCurrentIp()) {
+            return '';
+        }
+
+        return parent::_toHtml();
+    }
 }

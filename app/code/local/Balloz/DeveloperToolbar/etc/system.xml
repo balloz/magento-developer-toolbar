@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <balloz translate="label">
+            <label>Balloz</label>
+            <sort_order>100</sort_order>
+        </balloz>
+    </tabs>
+    <sections>
+        <developertoolbar translate="label" module="developertoolbar">
+            <label>Developer toolbar</label>
+            <tab>balloz</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>300</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <ips translate="label">
+                            <label>IP restrictions</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Comma-separated list of ip addresses to show the toolbar for. Leave this empty to show toolbar for all ip addresses.]]></comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ips>
+                    </fields>
+                </settings>
+            </groups>
+        </developertoolbar>
+    </sections>
+</config>

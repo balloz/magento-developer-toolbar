@@ -15,7 +15,12 @@
 					</developertoolbar>
 				</observers>
 			</controller_front_init_before>
-		</events>
+        </events>
+        <helpers>
+            <developertoolbar>
+                <class>Balloz_DeveloperToolbar_Helper</class>
+            </developertoolbar>
+        </helpers>
 		<blocks>
 			<developertoolbar>
 				<class>Balloz_DeveloperToolbar_Block</class>
@@ -30,10 +35,37 @@
 	<frontend>
         <layout>
             <updates>
-                <developer_toolbar>
+                <developertoolbar>
                     <file>balloz_developertoolbar.xml</file>
-                </developer_toolbar>
+                </developertoolbar>
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <developertoolbar translate="title" module="developertoolbar">
+                                            <title>Developer toolbar</title>
+                                        </developertoolbar>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <developertoolbar>
+            <ips />
+        </developertoolbar>
+    </default>
 </config>
