@@ -42,6 +42,13 @@
         </layout>
     </frontend>
     <adminhtml>
+        <layout>
+            <updates>
+                <developertoolbar>
+                    <file>balloz_developertoolbar.xml</file>
+                </developertoolbar>
+            </updates>
+        </layout>
         <acl>
             <resources>
                 <admin>
