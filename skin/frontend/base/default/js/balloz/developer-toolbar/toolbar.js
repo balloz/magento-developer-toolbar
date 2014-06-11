@@ -37,7 +37,8 @@
 			$startBlock.css('display', 'block');
 			$endBlock.css('display', 'block');
 			
-			var height = $endBlock.offset().top - $startBlock.offset().top;
+			var startY 	= $startBlock.offset().top
+			var height 	= $endBlock.offset().top - startY;
 			var overlay = $('<div class="developertoolbar-overlay"></div>');
 			
 			if(!height){
@@ -56,6 +57,8 @@
 			
 			$startBlock.css('display', 'none');
 			$endBlock.css('display', 'none');
+			
+			jQuery('body').animate({scrollTop:startY - 25}, 500);
 			
 			$('body').append(overlay);
 				
