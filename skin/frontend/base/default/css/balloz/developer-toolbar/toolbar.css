@@ -159,6 +159,6 @@
 
 /* === DOM Markers === */
 .developer-toolbar-dom-marker{
-	/*display:none;*/
+	display:none;
 /*	position:absolute;*/
 }

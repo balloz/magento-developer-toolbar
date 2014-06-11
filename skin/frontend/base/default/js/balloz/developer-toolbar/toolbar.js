@@ -35,6 +35,7 @@
 			}
 			
 			$startBlock.css('display', 'block');
+			$endBlock.css('display', 'block');
 			
 			var height = $endBlock.offset().top - $startBlock.offset().top;
 			var overlay = $('<div class="developertoolbar-overlay"></div>');
@@ -52,6 +53,9 @@
 				'height':height,
 				'opacity':0.3
 			});
+			
+			$startBlock.css('display', 'none');
+			$endBlock.css('display', 'none');
 			
 			$('body').append(overlay);
 				
