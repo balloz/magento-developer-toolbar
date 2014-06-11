@@ -21,11 +21,16 @@
 			
 			e.preventDefault();
 			
+			if($this.hasClass('active')){
+				$('.developer-toolbar-overlay').hide();
+				$this.removeClass('active');
+				return;
+			}
+			
 			if(!blockName){
 				return;
 			}
 			
-			$('.developertoolbar-overlay').remove();
 			
 			var $startBlock = $("." + blockName + "-start-viewer");
 			var $endBlock = $("." + blockName + "-end-viewer");
@@ -33,6 +38,9 @@
 			if(!$startBlock.length |! $endBlock.length){
 				return;
 			}
+			
+			$('.balloz-toolbar-panel-content-blocks a').removeClass('active');
+			$this.addClass('active');
 			
 			$startBlock.addClass('active');
 			$endBlock.addClass('active');
@@ -52,7 +60,8 @@
 				height = $startBlock.parent().height();
 			}
 			
-			overlay.css({
+			
+			overlay.show().css({
 				'position':'absolute',
 				'background':'red',
 				'left':$startBlock.offset().left,
