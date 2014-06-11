@@ -27,10 +27,11 @@
 				return;
 			}
 			
+			$('.balloz-toolbar-panel-content-blocks a').removeClass('active');
+			
 			if(!blockName){
 				return;
 			}
-			
 			
 			var $startBlock = $("." + blockName + "-start-viewer");
 			var $endBlock = $("." + blockName + "-end-viewer");
@@ -39,7 +40,7 @@
 				return;
 			}
 			
-			$('.balloz-toolbar-panel-content-blocks a').removeClass('active');
+			
 			$this.addClass('active');
 			
 			$startBlock.addClass('active');

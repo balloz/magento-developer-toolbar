@@ -76,6 +76,11 @@
 .balloz-toolbar .balloz-toolbar-panel-content-blocks .white a{
     color: white;
 }
+
+.balloz-toolbar .balloz-toolbar-panel-content-blocks a.active{
+	color:yellow;
+}
+
 .balloz-toolbar .balloz-toolbar-panel-content-blocks .time {
 	color: #00ffff;
 }
