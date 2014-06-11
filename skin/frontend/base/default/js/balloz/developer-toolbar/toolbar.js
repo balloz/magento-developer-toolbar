@@ -18,7 +18,6 @@
 			var $this = $(this);
 			
 			if($this.hasClass(endClass)){
-				console.log("END");
 				return false;
 			}
 			
