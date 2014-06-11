@@ -30,7 +30,7 @@
 		
 		if(!dims){
 			// Last ditch attempt to get something meaningful
-			dims = getDimensionObject($('.' + startClass).parent());	
+//			dims = getDimensionObject($('.' + startClass).parent());	
 		}
 		
 		
