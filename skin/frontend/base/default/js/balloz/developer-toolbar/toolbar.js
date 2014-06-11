@@ -140,13 +140,10 @@
 			}
 			
 			overlay.show().css({
-				'position':'absolute',
-				'background':'red',
 				'left':dims.left,
 				'top':dims.top,
 				'width':dims.right - dims.left,
-				'height':dims.bottom - dims.top,
-				'opacity':0.3
+				'height':dims.bottom - dims.top
 			});
 			
 			$startBlock.removeClass('active');

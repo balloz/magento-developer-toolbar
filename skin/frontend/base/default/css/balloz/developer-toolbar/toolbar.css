@@ -172,6 +172,10 @@
 }
 
 .developer-toolbar-overlay{
+	position:absolute;
+	z-index:4000;
+	background:red;
+	opacity:0.3;
 	transition:all 500ms ease-in-out;
 	-webkit-transition:all 500ms ease-in-out;
 }
