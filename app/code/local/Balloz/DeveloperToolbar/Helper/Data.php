@@ -21,4 +21,9 @@ class Balloz_DeveloperToolbar_Helper_Data extends Mage_Core_Helper_Abstract
 
         return $this->isEnabledForIp($ip);
     }
+	
+	public function makeLayoutNameIntoClass($name)
+	{
+		return str_replace('.', '-', $name);
+	}
 }
