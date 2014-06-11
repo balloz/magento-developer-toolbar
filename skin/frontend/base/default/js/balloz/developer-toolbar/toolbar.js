@@ -34,12 +34,17 @@
 				return;
 			}
 			
-			$startBlock.css('display', 'block');
-			$endBlock.css('display', 'block');
+			$startBlock.addClass('active');
+			$endBlock.addClass('active');
 			
 			var startY 	= $startBlock.offset().top
 			var height 	= $endBlock.offset().top - startY;
-			var overlay = $('<div class="developertoolbar-overlay"></div>');
+			var overlay = $('.developer-toolbar-overlay');
+			
+			if(!overlay.length){
+				overlay = $('<div class="developer-toolbar-overlay"></div>');
+				$('body').append(overlay);
+			}
 			
 			// Getting the height won't be perfect because of floats / absolutes.
 			// We do what we can, jeff.  Use the parent height if we don't have one.
@@ -57,12 +62,12 @@
 				'opacity':0.3
 			});
 			
-			$startBlock.css('display', 'none');
-			$endBlock.css('display', 'none');
+			$startBlock.removeClass('active');
+			$endBlock.removeClass('active');
 			
 			jQuery('body').animate({scrollTop:startY - 25}, 500);
 			
-			$('body').append(overlay);
+			
 				
 		});
 	});
