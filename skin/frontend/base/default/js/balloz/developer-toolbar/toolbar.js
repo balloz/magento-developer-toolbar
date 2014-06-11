@@ -41,6 +41,8 @@
 			var height 	= $endBlock.offset().top - startY;
 			var overlay = $('<div class="developertoolbar-overlay"></div>');
 			
+			// Getting the height won't be perfect because of floats / absolutes.
+			// We do what we can, jeff.  Use the parent height if we don't have one.
 			if(!height){
 				height = $startBlock.parent().height();
 			}
