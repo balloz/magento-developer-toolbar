@@ -13,6 +13,7 @@
 		
 		var dims;	
 		
+		// Fix it where the same block could be used multiple times on a page - the first one currently is selected
 		// Change this to get text nodes too - perhaps take out of jquery
 		$('.' + startClass).nextAll().each(function(){
 			var $this = $(this);
