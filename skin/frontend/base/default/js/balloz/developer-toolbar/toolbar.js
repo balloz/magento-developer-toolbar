@@ -7,14 +7,20 @@
 		return name + "-end-viewer";
 	}
 	
+	function isVisible($el){
+		// Forms appear invisible, but the contents most likely aren't!
+		if($el.get(0).nodeName == 'FORM'){
+			return true;
+		}
+		
+		return $el.is(":visible");
+	}
+	
 	function getDimensionsBetweenMarker(name){
 		var startClass = getStartMarkerClass(name),
-			endClass   = getEndMarkerClass(name);
+			endClass   = getEndMarkerClass(name),
+			dims;	
 		
-		var dims;	
-		
-		// Fix it where the same block could be used multiple times on a page - the first one currently is selected
-		// Change this to get text nodes too - perhaps take out of jquery
 		$('.' + startClass).nextAll().each(function(){
 			var $this = $(this);
 			
@@ -22,22 +28,17 @@
 				return false;
 			}
 			
-			if(!$this.is(':visible')){
+			if(!isVisible($this)){
 				return true;
 			}
 					
-			dims = mergeDimensions(dims, getDimensionsOfElement($this));
+			dims = mergeDimensions(dims, getTraversedDimensions($this));
 		});
-		
-		if(!dims){
-			// Last ditch attempt to get something meaningful
-//			dims = getDimensionObject($('.' + startClass).parent());	
-		}
-		
-		
+			
 		return dims;
 	}
 	
+	/* Merges two dimension objects, taking the min left and top, max right and bottom */
 	function mergeDimensions(dims, dims2){
 		if(!dims){
 			return dims2;
@@ -64,7 +65,8 @@
 		};
 	}
 	
-	function getDimensionsOfElement(el){
+	/* Gets the full dimensions of the element, calculated by its children */
+	function getTraversedDimensions(el){
 		var $element = $(el);
 
 		var resDims = getDimensionObject($element);
@@ -75,7 +77,7 @@
 			
 			// Don't include elements which have been included off screen to the left
 			// E.g. Magento's menu does this giving an odd false height for the header
-			if($this.is(':visible') && obDims.right > 0){
+			if(isVisible($this) && obDims.right > 0){
 				resDims = mergeDimensions(resDims, obDims);
 			}			
 		});
@@ -120,20 +122,13 @@
 			var $startBlock = $('.' + getStartMarkerClass(blockName));
 			var $endBlock = $('.' + getEndMarkerClass(blockName));
 			var dims = getDimensionsBetweenMarker(blockName);
+			var overlay = $('.developer-toolbar-overlay');
 			
 			if(!$startBlock.length |! $endBlock.length |! dims){
 				return;
 			}
 			
-			
-			
 			$this.addClass('active');
-			
-			$startBlock.addClass('active');
-			$endBlock.addClass('active');
-			
-			// var height 	= $endBlock.offset().top - startY;
-			var overlay = $('.developer-toolbar-overlay');
 			
 			if(!overlay.length){
 				overlay = $('<div class="developer-toolbar-overlay"></div>');
@@ -146,10 +141,7 @@
 				'width':dims.right - dims.left,
 				'height':dims.bottom - dims.top
 			});
-			
-			$startBlock.removeClass('active');
-			$endBlock.removeClass('active');
-			
+						
 			jQuery('body').animate({scrollTop:dims.top - 25}, 500);
 		});
 	});

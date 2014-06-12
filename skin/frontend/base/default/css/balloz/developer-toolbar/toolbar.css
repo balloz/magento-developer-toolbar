@@ -163,19 +163,11 @@
 }
 
 /* === DOM Markers === */
-.developer-toolbar-dom-marker{
-	display:none !important;
-}
-
-.developer-toolbar-dom-marker.active{
-	display:block !important;
-}
-
 .developer-toolbar-overlay{
 	position:absolute;
 	z-index:4000;
-	background:red;
-	opacity:0.3;
+	background:#ff5400;
+	opacity:0.5;
 	transition:all 500ms ease-in-out;
 	-webkit-transition:all 500ms ease-in-out;
 }
