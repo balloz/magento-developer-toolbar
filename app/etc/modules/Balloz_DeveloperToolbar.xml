@@ -4,9 +4,6 @@
         <Balloz_DeveloperToolbar>
             <active>true</active>
             <codePool>local</codePool>
-			<depends>
-				<Iweb_Jquery />
-			</depends>
         </Balloz_DeveloperToolbar>
     </modules>
 </config>
