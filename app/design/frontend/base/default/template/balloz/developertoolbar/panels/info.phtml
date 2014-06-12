@@ -1,0 +1,9 @@
+<?php $info = $this->getInfo(); ?>
+<?php if (!empty($info)) : ?>
+    <dl class="info-list">
+        <?php foreach ($info as $key => $value) : ?>
+        <dt><?php echo $this->htmlEscape($key); ?>:</dt>
+        <dd><?php echo $this->htmlEscape($value); ?></dd>
+        <?php endforeach; ?>
+    </dl>
+<?php endif; ?>

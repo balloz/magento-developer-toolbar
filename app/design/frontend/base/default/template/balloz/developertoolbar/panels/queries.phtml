@@ -12,7 +12,7 @@
         <?php foreach ($queries as $query) : ?>
         <tr>
             <td class="query">
-                <?php echo $query->getQuery(); ?>
+                <?php echo $this->htmlEscape($query->getQuery()); ?>
             </td>
             <td class="duration">
                 <?php echo $this->prettyInterval($query->getElapsedSecs() * 1000); ?>
