@@ -1,4 +1,6 @@
 (function($) {
+	var blockTimeout;
+	
 	function getStartMarkerClass(name){
 		return name + "-start-viewer";
 	}
@@ -84,6 +86,59 @@
 		
 		return resDims;
 	}
+
+	
+	function showOverlayForBlock(blockName, performScroll){
+		var overlay = $('.developer-toolbar-overlay');
+		var $startBlock = $('.' + getStartMarkerClass(blockName));
+		var $endBlock = $('.' + getEndMarkerClass(blockName));
+		var dims = getDimensionsBetweenMarker(blockName);
+		
+		performScroll = performScroll === false ? false : true;
+		
+		if(!$startBlock.length || !$endBlock.length || !dims){
+			return false;
+		}
+		
+		if(!overlay.length){
+			overlay = $('<div class="developer-toolbar-overlay"></div>');
+			$('body').append(overlay);
+		}
+		
+		// A min dimendion of 10
+		var width = dims.right - dims.left || 10;
+		var height = dims.bottom - dims.top || 10;
+		var scrollPadding = 25;
+		
+		overlay.show().css({
+			'left':dims.left,
+			'top':dims.top,
+			'width':width,
+			'height':height
+		});
+		
+		if($('body').scrollTop() !== dims.top - scrollPadding && performScroll){
+			$('body').animate({scrollTop:dims.top - scrollPadding}, 500);
+		}
+		
+		$(window).on('resize.developertoolbar', function(){
+			if(blockTimeout){
+				window.clearTimeout(blockTimeout);
+				blockTimeout = null;
+			}
+			
+			blockTimeout = window.setTimeout(function(){
+				showOverlayForBlock(blockName, false);
+			}, 150);
+		});
+		
+		return true;
+	}
+	
+	function hideBlockOverlay(){
+		$('.developer-toolbar-overlay').hide();
+		$(window).off("resize.developertoolbar");
+	}
 	
 	$(document).ready(function() {
 		// Apply enabled classes to clickable blocks
@@ -125,51 +180,23 @@
 			
 			e.preventDefault();
 			
+			// Toggle the selection off
 			if($this.hasClass('active')){
-				$('.developer-toolbar-overlay').hide();
 				$this.removeClass('active');
+				hideBlockOverlay();
 				return;
 			}
 			
 			$('.balloz-toolbar-panel-content-blocks a').removeClass('active');
 			
-			if(!blockName){
-				return;
-			}
 			
-			var $startBlock = $('.' + getStartMarkerClass(blockName));
-			var $endBlock = $('.' + getEndMarkerClass(blockName));
-			var dims = getDimensionsBetweenMarker(blockName);
-			var overlay = $('.developer-toolbar-overlay');
-			
-			if(!$startBlock.length |! $endBlock.length){
-				return;
-			}
-			
-			if(!dims){
+			if(!showOverlayForBlock(blockName)){
 				alert('The block\'s dimensions could not be determined');
 				return;
+			}else{
+				$this.addClass('active');
 			}
 			
-			$this.addClass('active');
-			
-			if(!overlay.length){
-				overlay = $('<div class="developer-toolbar-overlay"></div>');
-				$('body').append(overlay);
-			}
-			
-			var width = dims.right - dims.left || 10;
-			var height = dims.bottom - dims.top || 10;
-			
-			
-			overlay.show().css({
-				'left':dims.left,
-				'top':dims.top,
-				'width':width,
-				'height':height
-			});
-						
-			jQuery('body').animate({scrollTop:dims.top - 25}, 500);
 		});
 	});
 })(jQuery);
