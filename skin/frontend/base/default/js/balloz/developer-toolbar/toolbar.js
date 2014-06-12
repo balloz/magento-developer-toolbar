@@ -86,6 +86,24 @@
 	}
 	
 	$(document).ready(function() {
+		// Apply enabled classes to clickable blocks
+		$('.balloz-toolbar-panel-content-blocks a').each(function(){
+			var $this = $(this),
+				blockName = $this.data('layout-name');
+				
+			if(!blockName){
+				return;
+			}
+			
+			var $startBlock = $('.' + getStartMarkerClass(blockName));
+			var $endBlock = $('.' + getEndMarkerClass(blockName));
+			
+			if($startBlock.length && $endBlock.length){
+				$this.addClass('enabled');
+			}
+		});
+		
+		
 		$('.balloz-toolbar .balloz-toolbar-panel-label a').click(function() {
 			var $this = $(this),
 				active = $this.hasClass('active');
@@ -124,7 +142,12 @@
 			var dims = getDimensionsBetweenMarker(blockName);
 			var overlay = $('.developer-toolbar-overlay');
 			
-			if(!$startBlock.length |! $endBlock.length |! dims){
+			if(!$startBlock.length |! $endBlock.length){
+				return;
+			}
+			
+			if(!dims){
+				alert('The block\'s dimensions could not be determined');
 				return;
 			}
 			
@@ -135,11 +158,15 @@
 				$('body').append(overlay);
 			}
 			
+			var width = dims.right - dims.left || 10;
+			var height = dims.bottom - dims.top || 10;
+			
+			
 			overlay.show().css({
 				'left':dims.left,
 				'top':dims.top,
-				'width':dims.right - dims.left,
-				'height':dims.bottom - dims.top
+				'width':width,
+				'height':height
 			});
 						
 			jQuery('body').animate({scrollTop:dims.top - 25}, 500);

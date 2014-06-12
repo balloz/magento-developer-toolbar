@@ -1,6 +1,7 @@
 <?php
 class Balloz_DeveloperToolbar_Model_BlockObserver{
 	const HEAD_NAME = "head";
+	const BALLOZ_NAME = "balloz.toolbar";
 	const START_CLASS_SUFFIX = "-start-viewer";
 	const END_CLASS_SUFFIX = "-end-viewer";
 	const GLOBAL_CLASS = "developer-toolbar-dom-marker";
@@ -17,7 +18,7 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		$transport->setHtml("<div class='" . $this->_makeStartClass($blockName) . "'></div>" . $transport->getHtml() . "<div class='" . $this->_makeEndClass($blockName)  . "'></div>");
 	}
 	
-	protected function _isForbidden($block, $forbidden = array(self::HEAD_NAME)){
+	protected function _isForbidden($block, $forbidden = array(self::HEAD_NAME, self::BALLOZ_NAME)){
 		if(!$block){
 			return false;
 		}

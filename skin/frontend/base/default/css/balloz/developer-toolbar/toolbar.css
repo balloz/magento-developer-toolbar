@@ -70,6 +70,22 @@
     overflow: auto;
     color: darkgrey;
 }
+
+.balloz-toolbar .balloz-toolbar-panel-content-blocks a{
+	text-decoration:none;
+	cursor:default;
+}
+
+.balloz-toolbar .balloz-toolbar-panel-content-blocks a.enabled{
+	border-bottom:1px dotted #ff5400;
+	cursor:pointer;
+}
+
+.balloz-toolbar .balloz-toolbar-panel-content-blocks a.enabled:hover{
+	border-bottom:1px dotted white;
+	color:yellow;
+}
+
 .balloz-toolbar .balloz-toolbar-panel-content-blocks .limegreen a {
     color: limegreen;
 }
