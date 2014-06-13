@@ -6,10 +6,13 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 	const END_CLASS_SUFFIX = "-end-viewer";
 	const GLOBAL_CLASS = "developer-toolbar-dom-marker";
 	
+	protected $_excludedModules;
+	
 	public function wrapBlocks($observer){
 		$transport = $observer->getTransport();
 		$block = $observer->getBlock();
 		$blockName = $block->getNameInLayout();
+		
 		
 		if($this->_isForbidden($block) || $block->getIsAnonymous() || $blockName == 'root'){
 			return;
@@ -20,12 +23,25 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		}
 	}
 	
+	protected function _getExcludedModules(){
+		if($this->_excludedModules){
+			return $this->_excludedModules;
+		}
+		
+		$this->_excludedModules = explode(",",Mage::getStoreConfig('developertoolbar/settings/exclusions'));
+		return $this->_excludedModules;
+	}
+	
 	protected function _isForbidden($block, $forbidden = array(self::HEAD_NAME, self::BALLOZ_NAME)){
 		if(!$block){
 			return false;
 		}
 		
 		if(in_array($block->getNameInLayout(), $forbidden)){
+			return true;
+		}
+		
+		if(in_array($block->getModuleName(), $this->_getExcludedModules())){
 			return true;
 		}
 		
