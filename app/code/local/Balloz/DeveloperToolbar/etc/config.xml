@@ -83,7 +83,11 @@
 
     <default>
         <developertoolbar>
-            <ips />
+			<settings>
+	            <ips />
+				<exclusions />
+				<excludeforajax>1</excludeforajax>
+			</settings>
         </developertoolbar>
     </default>
 </config>

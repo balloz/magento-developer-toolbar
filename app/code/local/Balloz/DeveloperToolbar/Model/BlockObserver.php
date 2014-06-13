@@ -13,7 +13,6 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		$block = $observer->getBlock();
 		$blockName = $block->getNameInLayout();
 		
-		
 		if($this->_isForbidden($block) || $block->getIsAnonymous() || $blockName == 'root'){
 			return;
 		}
@@ -42,6 +41,10 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		}
 		
 		if(in_array($block->getModuleName(), $this->_getExcludedModules())){
+			return true;
+		}
+		
+		if(Mage::getStoreConfig('developertoolbar/settings/excludeforajax') && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'){
 			return true;
 		}
 		
