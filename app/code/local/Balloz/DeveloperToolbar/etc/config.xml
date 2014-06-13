@@ -86,7 +86,7 @@
 			<settings>
 	            <ips />
 				<exclusions />
-				<excludeforajax>1</excludeforajax>
+				<excludeforajax>0</excludeforajax>
 			</settings>
         </developertoolbar>
     </default>
