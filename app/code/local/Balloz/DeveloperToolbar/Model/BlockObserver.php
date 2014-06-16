@@ -18,7 +18,7 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		}
 		
 		if($transport->getHtml()){
-			$transport->setHtml("<div class='" . $this->_makeStartClass($blockName) . "'></div>" . $transport->getHtml() . "<div class='" . $this->_makeEndClass($blockName)  . "'></div>");
+			$transport->setHtml("<!--" . $this->_makeStartClass($blockName) . "--><div class='" . $this->_makeStartClass($blockName) . "'></div>" . $transport->getHtml() . "<div class='" . $this->_makeEndClass($blockName)  . "'></div><!--" . $this->_makeEndClass($blockName) . "-->");
 		}
 	}
 	

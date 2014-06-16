@@ -115,6 +115,14 @@
 		
 			return resDims;
 		}
+		
+		function getAllDocumentComments(){
+			return $("*").contents().filter(
+				function(){ 
+					return this.nodeType == 8;
+				}
+			);
+		}
 	
 		function showOverlayForBlock(blockName, performScroll){
 			var overlay = $('.developer-toolbar-overlay');
