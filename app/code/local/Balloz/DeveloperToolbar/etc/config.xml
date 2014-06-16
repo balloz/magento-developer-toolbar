@@ -15,6 +15,17 @@
 					</developertoolbar>
 				</observers>
 			</controller_front_init_before>
+			
+			<core_block_abstract_to_html_after>
+				<observers>
+					<wrapblocks>
+						<type>singleton</type>
+						<class>Balloz_DeveloperToolbar_Model_BlockObserver</class>
+						<method>wrapBlocks</method>
+					</wrapblocks>
+				</observers>
+			</core_block_abstract_to_html_after>
+			
         </events>
         <helpers>
             <developertoolbar>
@@ -72,7 +83,11 @@
 
     <default>
         <developertoolbar>
-            <ips />
+			<settings>
+	            <ips />
+				<exclusions />
+				<excludeforajax>0</excludeforajax>
+			</settings>
         </developertoolbar>
     </default>
 </config>
