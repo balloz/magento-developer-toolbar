@@ -2,9 +2,9 @@
 class Balloz_DeveloperToolbar_Model_BlockObserver{
 	const HEAD_NAME = "head";
 	const BALLOZ_NAME = "balloz.toolbar";
-	const START_CLASS_SUFFIX = "-start-viewer";
-	const END_CLASS_SUFFIX = "-end-viewer";
-	const GLOBAL_CLASS = "developer-toolbar-dom-marker";
+	const START_MARKER_SUFFIX = "-start-viewer";
+	const END_MARKER_SUFFIX = "-end-viewer";
+	const GLOBAL_MARKER = "developer-toolbar-dom-marker";
 	
 	protected $_excludedModules;
 	
@@ -18,7 +18,7 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		}
 		
 		if($transport->getHtml()){
-			$transport->setHtml("<!--" . $this->_makeStartClass($blockName) . "--><div class='" . $this->_makeStartClass($blockName) . "'></div>" . $transport->getHtml() . "<div class='" . $this->_makeEndClass($blockName)  . "'></div><!--" . $this->_makeEndClass($blockName) . "-->");
+			$transport->setHtml("<!--" . $this->_makeStartMarker($blockName) . "-->" . $transport->getHtml() . "<!--" . $this->_makeEndMarker($blockName) . "-->");
 		}
 	}
 	
@@ -51,13 +51,13 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		return $this->_isForbidden($block->getParentBlock());
 	}
 	
-	protected function _makeStartClass($blockName){
+	protected function _makeStartMarker($blockName){
 		$helper = Mage::helper('developertoolbar');
-		return $helper->makeLayoutNameIntoClass($blockName) . self::START_CLASS_SUFFIX . " " . self::GLOBAL_CLASS;
+		return $helper->makeLayoutNameIntoClass($blockName) . self::START_MARKER_SUFFIX . " " . self::GLOBAL_MARKER;
 	}
 	
-	protected function _makeEndClass($blockName){
+	protected function _makeEndMarker($blockName){
 		$helper = Mage::helper('developertoolbar');
-		return $helper->makeLayoutNameIntoClass($blockName) . self::END_CLASS_SUFFIX . " " . self::GLOBAL_CLASS;
+		return $helper->makeLayoutNameIntoClass($blockName) . self::END_MARKER_SUFFIX . " " . self::GLOBAL_MARKER;
 	}
 }

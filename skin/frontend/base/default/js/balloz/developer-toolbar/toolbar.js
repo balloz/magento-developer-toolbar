@@ -29,12 +29,21 @@
 	
 	function blockViewer($){
 		var blockTimeout;
+		var commentBlocks;
 	
-		function getStartMarkerClass(name){
+		function getStartMarker(name){
 			return name + "-start-viewer";
 		}
 	
-		function getEndMarkerClass(name){
+		function getEndMarker(name){
+			return name + "-end-viewer";
+		}
+		
+		function getStartMarker(name){
+			return name + "-start-viewer";
+		}
+		
+		function getEndMarker(name){
 			return name + "-end-viewer";
 		}
 	
@@ -48,14 +57,20 @@
 		}
 	
 		function getDimensionsBetweenMarker(name){
-			var startClass = getStartMarkerClass(name),
-				endClass   = getEndMarkerClass(name),
-				dims;	
-		
-			$('.' + startClass).nextAll().each(function(){
+
+			var blocks = getBlocksForMarker(name);
+			var dims;	
+			
+			if(!blocks.startBlock |! blocks.endBlock){
+				return false;
+			}
+			
+			
+			// Change this to be a normal for loop, looking for an end comment
+			blocks.$startBlock.nextAll().each(function(){
 				var $this = $(this);
 			
-				if($this.hasClass(endClass)){
+				if($this.get(0)){
 					return false;
 				}
 			
@@ -66,6 +81,7 @@
 				dims = mergeDimensions(dims, getTraversedDimensions($this));
 			});
 			
+			console.log(dims);
 			return dims;
 		}
 	
@@ -116,23 +132,65 @@
 			return resDims;
 		}
 		
-		function getAllDocumentComments(){
-			return $("*").contents().filter(
+		function getAllDocumentMarkers(){
+			return comments = $("*").contents().filter(
 				function(){ 
-					return this.nodeType == 8;
+					if(this.nodeType == 8){
+						return this.nodeValue.indexOf('developer-toolbar-dom-marker') !== -1;
+					}
+					
+					return false;
 				}
-			);
+			)
+		
+		}
+		
+		function getBlocksForMarker(blockName){
+			var startMarker = getStartMarker(blockName);
+			var endMarker = getEndMarker(blockName)
+			var commentBlocks = getAllDocumentMarkers();
+			
+			var blocks = {
+				'startBlock':null,
+				'endBlock':null
+			};
+	
+			if(!commentBlocks){
+				return blocks;
+			}
+			
+			for(var i = 0; i < commentBlocks.length; i++){
+				if(commentBlocks[i].nodeValue.indexOf(startMarker) !== -1 &! blocks.startBlock){
+					blocks.startBlock = $(commentBlocks[i]);
+				}
+				
+				if(commentBlocks[i].nodeValue.indexOf(endMarker) !== -1 &! blocks.endBlock){
+					blocks.endBlock = $(commentBlocks[i]);
+				}
+				
+				if(blocks.startBlock && blocks.endBlock){
+					break;
+				}
+			}
+			
+			return blocks;
 		}
 	
 		function showOverlayForBlock(blockName, performScroll){
 			var overlay = $('.developer-toolbar-overlay');
-			var $startBlock = $('.' + getStartMarkerClass(blockName));
-			var $endBlock = $('.' + getEndMarkerClass(blockName));
+			var $startBlock;
+ 			var $endBlock;
 			var dims = getDimensionsBetweenMarker(blockName);
+			var markerBlocks = getBlocksForMarker(blockName); 
+			
+			$startBlock = markerBlocks.startBlock;
+			$endBlock = markerBlocks.endBlock;
+			
+			console.log($startBlock, $endBlock);
 		
 			performScroll = performScroll === false ? false : true;
 		
-			if(!$startBlock.length || !$endBlock.length || !dims){
+			if(!$startBlock || !$endBlock || !dims){
 				hideBlockOverlay();
 				return false;
 			}
@@ -185,9 +243,9 @@
 			if(!blockName){
 				return;
 			}
-		
-			var $startBlock = $('.' + getStartMarkerClass(blockName));
-			var $endBlock = $('.' + getEndMarkerClass(blockName));
+			var markers = getAllDocumentMarkers();
+			var $startBlock = $('.' + getStartMarker(blockName));
+			var $endBlock = $('.' + getEndMarker(blockName));
 		
 			if($startBlock.length && $endBlock.length){
 				$this.addClass('enabled');
@@ -216,7 +274,7 @@
 			e.preventDefault();
 			
 			if(!$this.hasClass('enabled')){
-				return;
+				//return;
 			}
 		
 			// Toggle the selection off
