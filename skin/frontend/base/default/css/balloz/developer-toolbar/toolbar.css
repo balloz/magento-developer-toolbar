@@ -95,7 +95,7 @@
 }
 
 .balloz-toolbar .balloz-toolbar-panel-content-blocks a.enabled{
-	border-bottom:1px dotted #ff5400;
+	border-bottom:1px solid #ff5400;
 	cursor:pointer;
 }
 

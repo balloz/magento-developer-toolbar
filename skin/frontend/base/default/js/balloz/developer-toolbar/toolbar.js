@@ -38,14 +38,6 @@
 		function getEndMarker(name){
 			return name + "-end-viewer";
 		}
-		
-		function getStartMarker(name){
-			return name + "-start-viewer";
-		}
-		
-		function getEndMarker(name){
-			return name + "-end-viewer";
-		}
 	
 		function isVisible($el){
 			// Forms appear invisible, but the contents most likely aren't!
@@ -67,21 +59,23 @@
 			
 			
 			// Change this to be a normal for loop, looking for an end comment
-			blocks.$startBlock.nextAll().each(function(){
-				var $this = $(this);
+			var currentBlock = blocks.startBlock.get(0);
+			var endBlock = blocks.endBlock.get(0);
 			
-				if($this.get(0)){
-					return false;
+			while(currentBlock = currentBlock.nextSibling){
+				var $this = $(currentBlock);
+				
+				if(currentBlock == endBlock){
+					break;
 				}
-			
-				if(!isVisible($this)){
-					return true;
+				
+				if(!isVisible($this) || currentBlock.nodeType !== 1){
+					continue;
 				}
-					
+				
 				dims = mergeDimensions(dims, getTraversedDimensions($this));
-			});
+			}
 			
-			console.log(dims);
 			return dims;
 		}
 	
@@ -131,9 +125,17 @@
 		
 			return resDims;
 		}
+		var commentBlocks;
 		
-		function getAllDocumentMarkers(){
-			return comments = $("*").contents().filter(
+		// Cache these, only refresh when needed!
+		function getAllDocumentMarkers(refresh){
+			refresh = refresh === true ? true : false;
+
+			if(commentBlocks && refresh == false){
+				return commentBlocks;
+			}
+
+			commentBlocks = $("*").contents().filter(
 				function(){ 
 					if(this.nodeType == 8){
 						return this.nodeValue.indexOf('developer-toolbar-dom-marker') !== -1;
@@ -142,7 +144,8 @@
 					return false;
 				}
 			)
-		
+			
+			return commentBlocks;
 		}
 		
 		function getBlocksForMarker(blockName){
@@ -175,18 +178,23 @@
 			
 			return blocks;
 		}
+		
+		function refreshDocumentMarkers(){
+			getAllDocumentMarkers(true);
+		}
 	
 		function showOverlayForBlock(blockName, performScroll){
 			var overlay = $('.developer-toolbar-overlay');
 			var $startBlock;
  			var $endBlock;
+			
+			refreshDocumentMarkers();
+			
 			var dims = getDimensionsBetweenMarker(blockName);
 			var markerBlocks = getBlocksForMarker(blockName); 
 			
 			$startBlock = markerBlocks.startBlock;
 			$endBlock = markerBlocks.endBlock;
-			
-			console.log($startBlock, $endBlock);
 		
 			performScroll = performScroll === false ? false : true;
 		
@@ -243,11 +251,9 @@
 			if(!blockName){
 				return;
 			}
-			var markers = getAllDocumentMarkers();
-			var $startBlock = $('.' + getStartMarker(blockName));
-			var $endBlock = $('.' + getEndMarker(blockName));
+			var blocks = getBlocksForMarker(blockName);
 		
-			if($startBlock.length && $endBlock.length){
+			if(blocks.startBlock && blocks.endBlock){
 				$this.addClass('enabled');
 			}
 		});
@@ -274,7 +280,7 @@
 			e.preventDefault();
 			
 			if(!$this.hasClass('enabled')){
-				//return;
+				return;
 			}
 		
 			// Toggle the selection off
