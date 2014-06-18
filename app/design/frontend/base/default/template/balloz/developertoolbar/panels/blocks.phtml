@@ -1,13 +1,14 @@
 <?php $entries = $this->getEntries(); ?>
+<?php $helper = Mage::helper('developertoolbar'); ?>
 <?php foreach ($entries as $entry) : ?>
 <div style="padding-left: <?php echo $entry['level'] * 20; ?>px;">
 	<?php if ($entry['level'] == 1) : ?>
 	<span class="limegreen">
-		<?php echo $entry['alias']; ?> (<?php echo $entry['name']; ?>)
+		<a href="#" data-layout-name="<?php echo $helper->makeLayoutNameIntoClass($entry['name']);?>"><?php echo $entry['alias']; ?> (<?php echo $entry['name']; ?>)</a>
 	</span>
 	<?php else : ?>
 	<span class="white">
-		<?php echo $entry['alias']; ?> (<?php echo $entry['name']; ?>)
+		<a href="#" data-layout-name="<?php echo $helper->makeLayoutNameIntoClass($entry['name']);?>"><?php echo $entry['alias']; ?> (<?php echo $entry['name']; ?>)</a>
 	</span>
 	<?php endif; ?>
 	(<?php echo implode(' | ', $entry['extras']); ?>)
