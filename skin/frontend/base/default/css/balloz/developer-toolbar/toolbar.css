@@ -205,7 +205,3 @@
 	transition:all 500ms ease-in-out;
 	-webkit-transition:all 500ms ease-in-out;
 }
-
-.developer-toolbar-dom-marker{
-	display:none !important;
-}
