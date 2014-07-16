@@ -1,0 +1,13 @@
+<h4><?php echo $this->__('Skin JS');?></h4>
+<ol class="javascript">
+	<?php foreach ($this->getSkinJs() as $js) : ?>
+	<li><?php echo $this->htmlEscape($js); ?></li>
+	<?php endforeach; ?>
+</ol>
+
+<h4><?php echo $this->__('Root JS');?></h4>
+<ol class="javascript">
+	<?php foreach ($this->getRootJs() as $js) : ?>
+	<li><?php echo $this->htmlEscape($js); ?></li>
+	<?php endforeach; ?>
+</ol>
