@@ -1,0 +1,10 @@
+<?php if ($this->hasAny()) : ?>
+<?php foreach ($this->getAll() as $entry) : ?>
+<div class="debug-entry">
+    <h3><?php echo $this->escapeHtml($entry['name']); ?></h3>
+    <pre><?php var_dump($entry['data']); ?></pre>
+</div>
+<?php endforeach; ?>
+<?php else : ?>
+    <p>No debug data raised.</p>
+<?php endif; ?>

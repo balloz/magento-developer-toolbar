@@ -13,6 +13,7 @@
 				<block type="developertoolbar/panel_timers" name="balloz.toolbar.panels.timers" template="balloz/developertoolbar/panels/timers.phtml" />
 				<block type="developertoolbar/panel_queries" name="balloz.toolbar.panels.queries" template="balloz/developertoolbar/panels/queries.phtml" />
 				<block type="developertoolbar/panel_handles" name="balloz.toolbar.panels.handles" template="balloz/developertoolbar/panels/handles.phtml" />
+				<block type="developertoolbar/panel_debug" name="balloz.toolbar.panels.debug" template="balloz/developertoolbar/panels/debug.phtml" />
 			</block>
 		</reference>
 	</default>
