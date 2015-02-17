@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <layout>
 	<default>
-		<reference name="head">
-			<action method="addItem"><type>skin_css</type><name>css/balloz/developer-toolbar/toolbar.css</name></action>
-			<action method="addItem"><type>skin_js</type><name>js/balloz/developer-toolbar/toolbar.js</name></action>
+		<reference name="head">			
+            <action method="addItem"><type>skin_css</type><name>css/balloz/developer-toolbar/toolbar.css</name></action>
 		</reference>
 		<reference name="before_body_end">
 			<block type="developertoolbar/toolbar" name="balloz.toolbar" template="balloz/developertoolbar/toolbar.phtml">
@@ -13,7 +12,7 @@
 				<block type="developertoolbar/panel_queries" name="balloz.toolbar.panels.queries" template="balloz/developertoolbar/panels/queries.phtml" />
 				<block type="developertoolbar/panel_handles" name="balloz.toolbar.panels.handles" template="balloz/developertoolbar/panels/handles.phtml" />
 				<block type="developertoolbar/panel_javascript" name="balloz.toolbar.panels.javascript" template="balloz/developertoolbar/panels/javascript.phtml" />
-			</block>
+            </block>
 		</reference>
 	</default>
 </layout>

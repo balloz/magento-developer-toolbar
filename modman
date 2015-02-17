@@ -8,3 +8,5 @@ skin/frontend/base/default/css/balloz/developer-toolbar skin/frontend/base/defau
 skin/frontend/base/default/js/balloz/developer-toolbar skin/frontend/base/default/js/balloz/developer-toolbar
 skin/frontend/base/default/css/balloz/developer-toolbar skin/adminhtml/default/default/css/balloz/developer-toolbar
 skin/frontend/base/default/js/balloz/developer-toolbar skin/adminhtml/default/default/js/balloz/developer-toolbar
+
+js/developertoolbar/* js/developertoolbar/

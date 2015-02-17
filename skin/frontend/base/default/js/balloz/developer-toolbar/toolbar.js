@@ -1,33 +1,14 @@
-(function() {
-	function getJQuery(callback) {
-		if (typeof jQuery === "undefined") {
-			var scriptTag = document.createElement('script');
-			scriptTag.setAttribute("type", "text/javascript");
-			scriptTag.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js");
-			scriptTag.onload = function() {
-				jQuery.noConflict();
-				callback(jQuery);
-			};
-			scriptTag.onreadystatechange = function() {
-				if (this.readyState == 'complete' || this.readyState == 'loaded') {
-					jQuery.noConflict();
-					callback(jQuery);
-				}
-			};
-
-			document.getElementsByTagName("head")[0].appendChild(scriptTag);
-		} else {
-			callback(jQuery);
-		}
+(function($) {
+	if(!$){
+	    alert('Developer Toolbar Error - jQuery not loaded.\n\nPlease either load jQuery, or if you are loading it in a block other than head, set the developer toolbar\'s javascript to also load there.\n\nIf this is in the admin, please set jQuery to load there in the developer toolbar\'s config.');
+        return;
 	}
-
-	getJQuery(function($) {
-		$(document).ready(function() {
-			blockViewer($);
-		});
+    
+    $(document).ready(function() {
+        blockViewer();
 	});
 	
-	function blockViewer($){
+	function blockViewer(){
 		var blockTimeout;
 		var commentBlocks;
 	
@@ -302,4 +283,4 @@
 		});
 		
 	};
-}());
+}(window.jQuery));
