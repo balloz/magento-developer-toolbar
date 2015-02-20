@@ -1,8 +1,10 @@
 (function($) {
 	if(!$){
-	    alert('Developer Toolbar Error - jQuery not loaded.\n\nPlease either load jQuery, or if you are loading it in a block other than head, set the developer toolbar\'s javascript to also load there.\n\nIf this is in the admin, please set jQuery to load there in the developer toolbar\'s config.');
+        if(console){
+            console.error('Purple Ripper: Developer Toolbar Error - jQuery not loaded.\n\nPlease either load jQuery, or if you are loading it in a block other than head, set the developer toolbar\'s javascript to also load there.\n\nIf this is in the admin, please set jQuery to load there in the developer toolbar\'s config.');
+        }
         return;
-	}
+     }
     
     $(document).ready(function() {
         blockViewer();
