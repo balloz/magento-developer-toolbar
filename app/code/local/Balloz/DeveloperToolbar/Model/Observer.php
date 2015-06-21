@@ -30,8 +30,7 @@ class Balloz_DeveloperToolbar_Model_Observer
         $layout = Mage::app()->getLayout();
         $helper = Mage::helper('developertoolbar');
         $insertBlock = $layout->getBlock('head');
-        $loadjQuery = $helper->shouldLoadJquery();
-        
+        $loadJquery = $helper->shouldLoadJquery();
         // Load the javascript into an alternate block if set, but keep to head for admin
         if(Mage::app()->getStore()->isAdmin()){
             $loadJquery = $helper->shouldLoadJqueryInAdmin();
@@ -42,7 +41,9 @@ class Balloz_DeveloperToolbar_Model_Observer
         }
         
         if($insertBlock){
-            if($loadJquery){
+
+            if((bool)$loadJquery){
+				var_dump(self::JQUERY_PATH);
                 $insertBlock->addJs(self::JQUERY_PATH);
                 $insertBlock->addJs(self::JQUERY_NOCONFLICT_PATH);
             }
