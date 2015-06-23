@@ -43,7 +43,6 @@ class Balloz_DeveloperToolbar_Model_Observer
         if($insertBlock){
 
             if((bool)$loadJquery){
-				var_dump(self::JQUERY_PATH);
                 $insertBlock->addJs(self::JQUERY_PATH);
                 $insertBlock->addJs(self::JQUERY_NOCONFLICT_PATH);
             }
