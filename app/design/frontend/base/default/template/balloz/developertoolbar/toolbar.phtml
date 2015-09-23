@@ -1,5 +1,6 @@
 <?php $panels = $this->getPanels(); ?>
 <div class="balloz-toolbar">
+	<a href="#" class="balloz-toolbar-min balloz-toolbar-min-left">Move left</a>
 	<div class="balloz-toolbar-panels-container">
 		<?php foreach ($panels as $index => $panel) : ?>
 		<div class="balloz-toolbar-panel balloz-toolbar-panel-<?php echo $panel->getIdentifier(); ?>">
@@ -12,4 +13,5 @@
 		</div>
 		<?php endforeach; ?>
 	</div>
+	<a href="#" class="balloz-toolbar-min balloz-toolbar-min-right">Move right</a>
 </div>

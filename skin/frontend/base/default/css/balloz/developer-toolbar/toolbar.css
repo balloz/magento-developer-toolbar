@@ -6,15 +6,13 @@
     font: 11px Arial, sans-serif;
     text-align: left;
     color: #2f2f2f;
-    background-image: -moz-linear-gradient(top, #e4e4e4, #ffffff);
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e4e4e4), to(#ffffff));
-    background-image: -o-linear-gradient(top, #e4e4e4, #ffffff);
-    background: linear-gradient(top, #e4e4e4, #ffffff);
+    background-color: #e4e4e4;
     border-top: 1px solid #bbb;
     height: 30px;
-    padding: 2px 10px 0 10px;
-    border-bottom: 1px solid #bbb;
 	z-index: 999999;
+}
+.balloz-toolbar .balloz-toolbar-panels-container {
+    padding: 0 20px;
 }
 .balloz-toolbar .balloz-toolbar-panel {
     float: left;
@@ -24,15 +22,13 @@
     background-repeat: no-repeat;
     background-position: 6px center;
     display: block;
-    border: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     background-color: #fff;
-    padding: 4px 8px 4px 28px;
-    height: 18px;
-    line-height: 18px;
-    border-radius: 4px; 
+    padding: 0px 8px 0px 28px;
+    height: 30px;
+    line-height: 30px;
     text-decoration: none;
     color: #666;
-    margin-right: 2px;
 }
 .balloz-toolbar .balloz-toolbar-panel-label .active {
 	background-color: #dedede;
@@ -49,9 +45,61 @@
     bottom: 28px;
     background-color: #fff;
     border: 2px solid #ccc;
-    border-radius: 4px;
 	overflow: auto;
 	padding: 10px;
+}
+
+/* === Minimize buttons === */
+.balloz-toolbar .balloz-toolbar-min {
+    display: block;
+    text-indent: -9999px;
+    width: 20px;
+    height: 30px;
+    position: absolute;
+}
+.balloz-toolbar .balloz-toolbar-min-left:before,
+.balloz-toolbar .balloz-toolbar-min-right:before {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    top: 9px;
+    left: 7px;
+}
+
+.balloz-toolbar .balloz-toolbar-min-left:before,
+.balloz-toolbar.balloz-toolbar-hidden-right .balloz-toolbar-min-right:before {
+    border-top: 6px inset transparent;
+    border-bottom: 6px inset transparent;
+    border-right: 6px solid darkgrey;
+    border-left: none;
+}
+.balloz-toolbar .balloz-toolbar-min-right:before,
+.balloz-toolbar.balloz-toolbar-hidden-left .balloz-toolbar-min-left:before {
+    border-top: 6px inset transparent;
+    border-bottom: 6px inset transparent;
+    border-right: none;
+    border-left: 6px solid darkgrey;
+}
+
+.balloz-toolbar.balloz-toolbar-hidden-right {
+    left: auto;
+    width: 20px;
+    overflow: hidden;
+    border-left: 1px solid #bbb;
+}
+.balloz-toolbar.balloz-toolbar-hidden-left {
+    right: auto;
+    width: 20px;
+    overflow: hidden;
+    border-right: 1px solid #bbb;
+}
+.balloz-toolbar .balloz-toolbar-min-left {
+    left: 0;
+}
+.balloz-toolbar .balloz-toolbar-min-right {
+    right: 0;
 }
 
 /* === Info panel === */

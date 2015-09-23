@@ -23,7 +23,9 @@
 
 	getJQuery(function($) {
 		$(document).ready(function() {
-			$('.balloz-toolbar a').click(function() {
+			$('.balloz-toolbar-panels-container a').click(function(e) {
+				e.preventDefault();
+
 				var $this = $(this),
 					active = $this.hasClass('active');
 				
@@ -34,8 +36,26 @@
 					$(this).addClass('active');
 					$($this.attr('href')).toggle();
 				}
+			});
 
-				return false;
+			var $toolbar = $('.balloz-toolbar');
+
+			$('.balloz-toolbar .balloz-toolbar-min').click(function(e) {
+				e.preventDefault();
+
+				var $this = $(this);
+
+				if ($toolbar.hasClass('balloz-toolbar-hidden-left')) {
+					$toolbar.removeClass('balloz-toolbar-hidden-left');
+				} else if ($toolbar.hasClass('balloz-toolbar-hidden-right')) {
+					$toolbar.removeClass('balloz-toolbar-hidden-right');
+				} else {
+					if ($this.hasClass('balloz-toolbar-min-left')) {
+						$toolbar.addClass('balloz-toolbar-hidden-left');
+					} else if ($this.hasClass('balloz-toolbar-min-right')) {
+						$toolbar.addClass('balloz-toolbar-hidden-right');
+					}
+				}
 			});
 		});
 	});
