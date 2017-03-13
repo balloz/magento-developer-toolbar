@@ -29,7 +29,6 @@
             <controller_action_layout_generate_blocks_after>
                 <observers>
                     <developertoolbar_addblocks>
-                        <type>singleton</type>
                         <class>developertoolbar/observer</class>
                         <method>addRequiredElements</method>
                      </developertoolbar_addblocks>   
