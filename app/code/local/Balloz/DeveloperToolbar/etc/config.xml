@@ -19,7 +19,6 @@
 			<core_block_abstract_to_html_after>
 				<observers>
 					<wrapblocks>
-						<type>singleton</type>
 						<class>developertoolbar/blockobserver</class>
 						<method>wrapBlocks</method>
 					</wrapblocks>
