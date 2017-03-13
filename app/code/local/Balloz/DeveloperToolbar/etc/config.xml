@@ -10,6 +10,7 @@
 			<controller_front_init_before>
 				<observers>
 					<developertoolbar>
+						<type>model</type>
 						<class>developertoolbar/observer</class>
 						<method>enableProfiling</method>
 					</developertoolbar>
@@ -19,6 +20,7 @@
 			<core_block_abstract_to_html_after>
 				<observers>
 					<wrapblocks>
+						<type>model</type>
 						<class>developertoolbar/blockobserver</class>
 						<method>wrapBlocks</method>
 					</wrapblocks>
@@ -28,6 +30,7 @@
             <controller_action_layout_generate_blocks_after>
                 <observers>
                     <developertoolbar_addblocks>
+			<type>model</type>
                         <class>developertoolbar/observer</class>
                         <method>addRequiredElements</method>
                      </developertoolbar_addblocks>   
