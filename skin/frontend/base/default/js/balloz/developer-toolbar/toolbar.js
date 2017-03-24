@@ -250,7 +250,7 @@
 		
 			if (!active) {
 				$(this).addClass('active');
-				$($this.attr('href')).toggle();
+				$($this.attr('href')).show();
 			}
 		
 			return false;
