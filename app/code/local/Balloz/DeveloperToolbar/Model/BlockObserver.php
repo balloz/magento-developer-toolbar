@@ -43,10 +43,11 @@ class Balloz_DeveloperToolbar_Model_BlockObserver{
 		if(in_array($block->getModuleName(), $this->_getExcludedModules())){
 			return true;
 		}
-		
-		if(Mage::getStoreConfig('developertoolbar/settings/excludeforajax') && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'){
-			return true;
-		}
+
+        if(Mage::getStoreConfig('developertoolbar/settings/excludeforajax')
+            && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'){
+            return true;
+        }
 		
 		return $this->_isForbidden($block->getParentBlock());
 	}
