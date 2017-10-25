@@ -163,14 +163,28 @@
     color: #00ffff;
 }
 
+/* === Block performance panel === */
+.balloz-toolbar .balloz-toolbar-panel-content-block-performance {
+    background-color: #000;
+    height: 500px;
+    overflow: auto;
+    color: darkgrey;
+}
+.balloz-toolbar .balloz-toolbar-panel-content-block-performance .limegreen {
+    color: limegreen;
+}
+.balloz-toolbar .balloz-toolbar-panel-content-block-performance .white {
+    color: white;
+}
+
 /* === Timer interval related styling === */
-.balloz-toolbar .time.interval-green {
+.balloz-toolbar .notify-green {
     color: #00ff00;
 }
-.balloz-toolbar .time.interval-yellow {
+.balloz-toolbar .notify-yellow {
     color: #ffff00;
 }
-.balloz-toolbar .time.interval-red {
+.balloz-toolbar .notify-red {
     color: #ff0000;
 }
 

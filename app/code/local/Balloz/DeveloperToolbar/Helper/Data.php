@@ -3,6 +3,10 @@
 class Balloz_DeveloperToolbar_Helper_Data extends Mage_Core_Helper_Abstract
 {
     protected $ips = null;
+    protected $connections = array(
+        'core_read',
+        'core_write'
+    );
 
     public function isEnabledForIp($ip)
     {
@@ -51,5 +55,17 @@ class Balloz_DeveloperToolbar_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $layout = Mage::app()->getLayout();
         return $layout->getBlock(Mage::getStoreConfig('developertoolbar/settings/alternateblock'));
+    }
+
+    public function getQueries()
+    {
+        $queries = array();
+        $resource = Mage::getSingleton('core/resource');
+
+        foreach ($this->connections as $connection) {
+            $queries[$connection] = $resource->getConnection($connection)->getProfiler()->getQueryProfiles();
+        }
+
+        return $queries;
     }
 }

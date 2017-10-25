@@ -24,11 +24,11 @@ class Balloz_DeveloperToolbar_Block_Panel_Blocks extends Balloz_DeveloperToolbar
     public function colorInterval($interval)
     {
         if ($interval < 5) {
-            return 'interval-green';
+            return 'notify-green';
         } elseif ($interval < 10) {
-            return 'interval-yellow';
+            return 'notify-yellow';
         } else {
-            return 'interval-red';
+            return 'notify-red';
         }
     }
 

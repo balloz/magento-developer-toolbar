@@ -24,7 +24,34 @@
 					</wrapblocks>
 				</observers>
 			</core_block_abstract_to_html_after>
-			
+
+            <core_layout_block_create_after>
+                <observers>
+                    <wrapblocks>
+                        <class>developertoolbar/blockProfiler</class>
+                        <method>onBlockCreation</method>
+                    </wrapblocks>
+                </observers>
+            </core_layout_block_create_after>
+
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <wrapblocks>
+                        <class>developertoolbar/blockProfiler</class>
+                        <method>beforeBlockRender</method>
+                    </wrapblocks>
+                </observers>
+            </core_block_abstract_to_html_before>
+
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <wrapblocks>
+                        <class>developertoolbar/blockProfiler</class>
+                        <method>afterBlockRender</method>
+                    </wrapblocks>
+                </observers>
+            </core_block_abstract_to_html_after>
+
             <controller_action_layout_generate_blocks_after>
                 <observers>
                     <developertoolbar_addblocks>
