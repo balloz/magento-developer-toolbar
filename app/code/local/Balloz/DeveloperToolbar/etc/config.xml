@@ -10,11 +10,29 @@
 			<controller_front_init_before>
 				<observers>
 					<developertoolbar>
-						<class>Balloz_DeveloperToolbar_Model_Observer</class>
+						<class>developertoolbar/observer</class>
 						<method>enableProfiling</method>
 					</developertoolbar>
 				</observers>
 			</controller_front_init_before>
+			
+			<core_block_abstract_to_html_after>
+				<observers>
+					<wrapblocks>
+						<class>developertoolbar/blockObserver</class>
+						<method>wrapBlocks</method>
+					</wrapblocks>
+				</observers>
+			</core_block_abstract_to_html_after>
+			
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <developertoolbar_addblocks>
+                        <class>developertoolbar/observer</class>
+                        <method>addRequiredElements</method>
+                     </developertoolbar_addblocks>   
+                </observers>
+            </controller_action_layout_generate_blocks_after>
         </events>
         <helpers>
             <developertoolbar>
@@ -72,7 +90,15 @@
 
     <default>
         <developertoolbar>
-            <ips />
+			<settings>
+	            <ips />
+				<exclusions />
+				<excludeforajax>0</excludeforajax>
+                <loadjquery>0</loadjquery>
+                <loadinalternate>0</loadinalternate>
+                <loadjqueryinadmin>1</loadjqueryinadmin>
+                <alternateblock>extra_js</alternateblock>
+			</settings>
         </developertoolbar>
     </default>
 </config>

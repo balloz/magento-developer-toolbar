@@ -22,7 +22,34 @@ class Balloz_DeveloperToolbar_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->isEnabledForIp($ip);
     }
 
-    public function debug($data, $name = false) {
+    public function debug($data, $name = false) 
+    {
         Mage::getSingleton('developertoolbar/debug')->add($data, $name);
+    }
+
+    public function makeLayoutNameIntoClass($name)
+    {
+        return str_replace('.', '-', $name);
+    }
+
+    public function shouldLoadJQuery()
+    {
+        return Mage::getStoreConfig('developertoolbar/settings/loadjquery');
+    }
+
+    public function shouldLoadInAlternate()
+    {
+        return Mage::getStoreConfig('developertoolbar/settings/loadinalternate');
+    }
+
+    public function shouldLoadJqueryInAdmin()
+    {
+        return Mage::getStoreConfig('developertoolbar/settings/loadjqueryinadmin');
+    }
+
+    public function getAlternateBlock() 
+    {
+        $layout = Mage::app()->getLayout();
+        return $layout->getBlock(Mage::getStoreConfig('developertoolbar/settings/alternateblock'));
     }
 }
