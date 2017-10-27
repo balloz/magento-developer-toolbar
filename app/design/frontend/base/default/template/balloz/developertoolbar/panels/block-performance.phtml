@@ -9,5 +9,11 @@
 	(<?php echo $profile['class']; ?>)
     - <span class="query-count <?php echo $this->colorQueries($profile['query_count']); ?>"><?php echo $profile['query_count']; ?> queries</span>
     - <span class="time <?php echo $this->colorInterval($profile['duration']); ?>"><?php echo number_format($profile['duration'], 2); ?>ms</span>
+    -
+    <?php if ($profile['served_from_cache']) : ?>
+    <span class="notify-green">Served from cache</span>
+    <?php else : ?>
+    <span class="notify-red">Not served from cache</span>
+    <?php endif; ?>
 </div>
 <?php endforeach; ?>
