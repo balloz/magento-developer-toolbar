@@ -1,6 +1,9 @@
 <?php $helper = Mage::helper('developertoolbar'); ?>
 <?php foreach ($this->getProfiles() as $profile) : ?>
 <div style="padding-left: <?php echo $profile['level'] * 20; ?>px;">
+    <span class="percentage">
+        <?php echo $this->getPercentage($profile); ?>%
+    </span>
 	<?php if ($profile['level'] == 1) : ?>
 	<span class="limegreen"><?php echo $profile['name']; ?></span>
 	<?php else : ?>
